@@ -1,20 +1,23 @@
-import satData from "./components/satData";
+import satData from "./satData";
 
-const Buttons = (filterByType, setSat, displaySats) => {
-  {displaySats.map((sat, id) => {
-  return (
+const Buttons = ({filterByType, setSat, displaySats}) => {
+  return(
     <div>
-      <button onClick={() => filterByType(sat)} key={id}>
-        {sat} Orbit
-      </button>
-    </div>
+  {displaySats.map((sat, id) => {
+    return (
+     
+        <button onClick={() => filterByType(sat)} key={id}>
+          {sat} Orbit
+        </button>
   );
 })}
-return(
+
+
   <button onClick={() => setSat(satData)}>
     All Orbits
     </button>
-)
+    </div>
+  );
 };
 
 export default Buttons;

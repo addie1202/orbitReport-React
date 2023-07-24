@@ -1,17 +1,7 @@
-import satData from "./components/satData";
+
 
 const Table = ({ sat }) => {
-  let status
-  if (data.operational === true) {
-    status = "active"
-  } else {
-    status = "inactive"
-  }
-
-  function iterateSat(props) {
-    const satMapped = props.map(id, data);
-    return satMapped;
-  }
+ 
 
   return (
       <table>
@@ -24,13 +14,17 @@ const Table = ({ sat }) => {
         </tr>
         </thead>
         <tbody>
-          {satMapped}
+          {sat.map((data, id) => {
+            return(
         <tr key={id}>
           <td>{data.name}</td>
           <td>{data.type}</td>
           <td>{data.launchDate}</td>
-          <td>{status}</td>
+          <td>{data.operational ? "active" : "inactive"}</td>
         </tr>
+            )
+          })}
+        
         </tbody>
       </table>
   );
